@@ -1,4 +1,14 @@
 services:
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+    
   jenkins:
     build: ./jenkins
     image: jenkins
